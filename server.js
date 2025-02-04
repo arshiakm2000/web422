@@ -6,7 +6,7 @@
  * https://www.senecapolytechnic.ca/about/policies/academic-integrity-policy.html
  *
  * Name: Arshia Keshavarz Motamedi Student ID: 158672220 Date: 2/3/2025
- * Published URL: _____________________________________________________________
+ * Published URL: https://web422-zeta.vercel.app/
  ******************************************************************************/
 
 require('dotenv').config();
@@ -21,7 +21,7 @@ const HTTP_PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Routes
+
 
 
 app.get('/', (req, res) => {
@@ -83,7 +83,6 @@ app.delete('/api/listings/:id', async (req, res) => {
     }
 });
 
-// Initialize database and start server
 db.initialize(process.env.MONGODB_CONN_STRING).then(() => {
     app.listen(HTTP_PORT, () => {
         console.log(`Server listening on: ${HTTP_PORT}`);
