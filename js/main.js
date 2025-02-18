@@ -12,7 +12,7 @@ let page = 1;
 let perPage = 10;
 let searchName = null;
 
-const apiUrl = "http://localhost:3000";
+const apiUrl = "https://web422-zeta.vercel.app";
 
 // DOM Elements
 const listingsTable = document.getElementById("listingsTable");
@@ -25,6 +25,7 @@ const nameInput = document.getElementById("name");
 
 // Load Listings Data
 async function loadListingsData() {
+    console.log(page);
     let url = `${apiUrl}/api/listings?page=${page}&perPage=${perPage}`;
     if (searchName) {
         url += `&name=${searchName}`;
@@ -111,12 +112,14 @@ clearFormBtn.addEventListener("click", () => {
 previousPageBtn.addEventListener("click", () => {
     if (page > 1) {
         page--;
+        currentPageBtn.textContent = page;
         loadListingsData();
     }
 });
 
 nextPageBtn.addEventListener("click", () => {
     page++;
+    currentPageBtn.textContent = page;
     loadListingsData();
 });
 
